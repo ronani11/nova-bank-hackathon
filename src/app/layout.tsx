@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Playfair_Display } from 'next/font/google'
 import './globals.css'
 import StoryblokProvider from '@/app/StoryblokProvider'
 
@@ -8,11 +8,16 @@ const inter = Inter({
   subsets: ['latin'],
 })
 
+const playfairDisplay = Playfair_Display({
+  variable: '--font-playfair-display',
+  subsets: ['latin'],
+})
+
 export const metadata: Metadata = {
   title: 'Novabank',
   description: 'Novabank is a Dutch financial services company for modern banking, savings, and lending.',
   icons: {
-    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+    icon: [{ url: '/novabank-logo.svg', type: 'image/svg+xml' }],
   },
 }
 
@@ -24,7 +29,11 @@ export default function RootLayout({
   return (
     <StoryblokProvider>
       <html lang="en">
-        <body className={`${inter.className} antialiased`}>{children}</body>
+        <body
+          className={`${inter.variable} ${playfairDisplay.variable} antialiased`}
+        >
+          {children}
+        </body>
       </html>
     </StoryblokProvider>
   )

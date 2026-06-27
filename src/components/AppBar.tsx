@@ -37,11 +37,8 @@ function AppBarView(props: AppbarProps) {
       className={`flex flex-col sm:flex-row items-stretch self-stretch px-4 sm:px-8 md:px-20 py-4 sm:py-0 h-auto  sm:h-25 border-b border-stone-900 justify-between overflow-hidden ${props.className}`}
     >
       <div className="flex justify-between items-center py-3 sm:py-0">
-        <div className="flex items-center gap-1 sm:gap-1.5">
-          <BrandIcon />
-          <div className="text-stone-900 text-lg sm:text-xl font-bold leading-6 sm:leading-7">
-            Novabank
-          </div>
+        <div className="flex items-center">
+          <BrandIcon className="w-44 sm:w-60 md:w-72 h-auto" />
         </div>
         <div className="sm:hidden flex items-center gap-2">
           <Link
