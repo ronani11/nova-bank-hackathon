@@ -12,6 +12,8 @@
 }
 
 @theme inline {
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair-display);
   --color-stone-900: var(--nb-primary);
   --color-stone-800: var(--nb-secondary);
   --color-stone-100: var(--nb-background);
@@ -25,8 +27,17 @@
 
 @layer base {
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans), sans-serif;
     @apply text-gray-900 bg-neutral-100;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-serif), serif;
   }
 
   .rich-text h1 {
