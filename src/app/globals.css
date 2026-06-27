@@ -2,10 +2,31 @@
 @source "../components";
 @source "../storyblok";
 
+:root {
+  --nb-primary: #1a3d5c;
+  --nb-secondary: #2e7d6b;
+  --nb-accent: #f5a623;
+  --nb-background: #f8f9fa;
+  --nb-text-primary: #1a1a2e;
+  --nb-text-secondary: #6c757d;
+}
+
+@theme inline {
+  --color-stone-900: var(--nb-primary);
+  --color-stone-800: var(--nb-secondary);
+  --color-stone-100: var(--nb-background);
+  --color-neutral-100: var(--nb-background);
+  --color-gray-900: var(--nb-text-primary);
+  --color-gray-600: var(--nb-text-secondary);
+  --color-blue-600: var(--nb-secondary);
+  --color-blue-800: var(--nb-primary);
+  --color-green-300: var(--nb-accent);
+}
+
 @layer base {
   body {
     font-family: 'Inter', sans-serif;
-    @apply text-gray-900 bg-white;
+    @apply text-gray-900 bg-neutral-100;
   }
 
   .rich-text h1 {

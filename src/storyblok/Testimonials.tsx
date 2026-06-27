@@ -14,10 +14,10 @@ function Testimonials(props: TestimonialsProps) {
       {...storyblokEditable(props.blok)}
     >
       <div className="flex flex-col gap-2 sm:gap-4">
-        <h2 className="flex-1 text-center text-3xl leading-[38px] tracking-[-0.3px] font-extrabold text-[#1F1F1F] font-inter       sm:text-[60px] sm:leading-[72px] sm:tracking-[-0.6px]">
+        <h2 className="flex-1 text-center text-3xl leading-[38px] tracking-[-0.3px] font-extrabold text-[#1a1a2e] font-inter       sm:text-[60px] sm:leading-[72px] sm:tracking-[-0.6px]">
           {props.blok.title}
         </h2>
-        <p className="self-stretch text-center text-base leading-6 text-[#44474A] font-inter font-normal       sm:text-[18px] sm:leading-[28px]">
+        <p className="self-stretch text-center text-base leading-6 text-[#6c757d] font-inter font-normal       sm:text-[18px] sm:leading-[28px]">
           {props.blok.description}
         </p>
       </div>
