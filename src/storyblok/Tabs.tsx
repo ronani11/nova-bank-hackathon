@@ -10,6 +10,8 @@ export type TabsProps = {
   blok: TabsContent
 }
 
+const tabTitleOverrides = ['Personal loan', 'Mortgages', 'Investments']
+
 function Tabs(props: TabsProps) {
   const [currentTabUid, setCurrentTabUid] = useState(
     () => props.blok.tabs[0]?._uid,
@@ -26,7 +28,7 @@ function Tabs(props: TabsProps) {
         </div>
         <div className="self-stretch flex flex-col items-stretch gap-4 md:gap-5">
           <div className="self-stretch p-1 bg-white rounded-lg outline-1 outline-offset-[-1px] outline-stone-900 inline-flex justify-start items-center gap-2">
-            {props.blok.tabs?.map((tab) => (
+            {props.blok.tabs?.map((tab, index) => (
               <button
                 key={tab._uid}
                 {...storyblokEditable(tab)}
@@ -38,7 +40,7 @@ function Tabs(props: TabsProps) {
                 } rounded-lg flex justify-center items-center gap-0.5`}
               >
                 <div className="justify-center text-base font-bold leading-snug">
-                  {tab.title}
+                  {tabTitleOverrides[index] ?? tab.title}
                 </div>
               </button>
             ))}

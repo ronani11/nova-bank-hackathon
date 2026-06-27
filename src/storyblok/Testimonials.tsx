@@ -18,7 +18,7 @@ function Testimonials(props: TestimonialsProps) {
           {props.blok.title}
         </h2>
         <p className="self-stretch text-center text-base leading-6 text-[#6c757d] font-inter font-normal       sm:text-[18px] sm:leading-[28px]">
-          {props.blok.description}
+          Reliable, transparent and always compliant — that&apos;s the Novabank promise.
         </p>
       </div>
       <div className="self-stretch flex justify-start items-stretch gap-4 md:gap-6 flex-col md:flex-row">

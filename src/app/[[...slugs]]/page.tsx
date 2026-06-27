@@ -18,6 +18,10 @@ import { StoryblokStory } from '@storyblok/react/rsc'
 
 export const revalidate = 0
 
+export const metadata = {
+  title: 'Novabank — Your financial security, our priority',
+}
+
 const resolveRelations = ['teamMembers.teamMembers']
 
 type DynamicPageProps = {
