@@ -11,66 +11,66 @@ export type FooterViewProps = {
 const footerMenu = [
   {
     id: 0,
-    title: 'Learn more',
+    title: 'Explore',
     items: [
       {
         label: 'Home',
         href: '/',
       },
       {
-        label: 'Services',
+        label: 'Banking',
         href: '/services',
       },
       {
-        label: 'About',
+        label: 'About Novabank',
         href: '/about',
       },
       {
-        label: 'Blog',
+        label: 'Insights',
         href: '/blog',
       },
       {
-        label: 'Get in touch',
+        label: 'Contact',
         href: '/get-in-touch',
       },
     ],
   },
   {
     id: 1,
-    title: 'Service',
+    title: 'Products',
     items: [
       {
-        label: 'Brand',
+        label: 'Daily Banking',
         href: '/brand',
       },
       {
-        label: 'Strategy',
+        label: 'Savings',
         href: '/strategy',
       },
       {
-        label: 'Website',
+        label: 'Mortgages',
         href: '/website',
       },
       {
-        label: 'Marketing',
+        label: 'Business Accounts',
         href: '/marketing',
       },
       {
-        label: 'Design',
+        label: 'Investments',
         href: '/design',
       },
     ],
   },
   {
     id: 2,
-    title: 'Resources',
+    title: 'Support',
     items: [
       {
-        label: 'Enterprise',
+        label: 'Security',
         href: '/enterprise',
       },
       {
-        label: 'Case Studies',
+        label: 'Customer Stories',
         href: '/case-studies',
       },
       {
@@ -95,16 +95,16 @@ function FooterView(props: FooterViewProps) {
       <div className="self-stretch flex flex-col justify-start items-center gap-2.5 md:flex-row md:items-center">
         <div className="w-full flex justify-start items-center gap-1 flex-wrap content-center md:w-[577px]">
           <div className="flex-1 text-white text-2xl font-extrabold leading-9 md:text-5xl md:leading-[62px]">
-            Let’s make something cool together
+            Banking built around your future
           </div>
         </div>
       </div>
       <div className="self-stretch flex flex-col gap-8 md:flex-row md:justify-between md:items-start">
         <div className="w-full flex flex-col justify-start items-start gap-6 md:w-[453.38px] md:gap-10">
           <div className="self-stretch text-white text-sm font-normal leading-relaxed md:text-base">
-            80,000 + developers & marketers use Storyblok&apos;s CMS to deliver
-            powerful content experiences on any frontend: Websites, eCommerce,
-            mobile apps, AR/VR or voice content.
+            Novabank helps households and businesses across the Netherlands with
+            secure day-to-day banking, smart savings, and straightforward
+            financial guidance.
           </div>
           <div className="flex items-center gap-3">
             <Link

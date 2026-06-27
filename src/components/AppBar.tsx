@@ -14,11 +14,11 @@ const tabs = [
     href: '/',
   },
   {
-    label: 'Services',
+    label: 'Banking',
     href: '/services',
   },
   {
-    label: 'About',
+    label: 'About Novabank',
     href: '/about',
   },
 ]
@@ -40,12 +40,12 @@ function AppBarView(props: AppbarProps) {
         <div className="flex items-center gap-1 sm:gap-1.5">
           <BrandIcon />
           <div className="text-stone-900 text-lg sm:text-xl font-bold leading-6 sm:leading-7">
-            BrightStart
+            Novabank
           </div>
         </div>
         <div className="sm:hidden flex items-center gap-2">
           <Link
-            href="mailto:connect@brightstart.com"
+            href="mailto:hello@novabank.nl"
             className="self-center px-4 py-2 rounded-lg inline-flex flex-col items-end gap-2.5 overflow-hidden text-right justify-center text-white text-sm font-semibold leading-tight bg-stone-900 hover:bg-stone-800"
           >
             Get in touch
@@ -75,7 +75,7 @@ function AppBarView(props: AppbarProps) {
           ))}
         </div>
         <Link
-          href="mailto:connect@brightstart.com"
+          href="mailto:hello@novabank.nl"
           className="self-center px-4 py-2 rounded-lg inline-flex flex-col items-end gap-2.5 overflow-hidden text-right justify-center text-white text-sm font-semibold leading-tight bg-stone-900 hover:bg-stone-800"
         >
           Get in touch
