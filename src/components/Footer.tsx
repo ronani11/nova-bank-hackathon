@@ -95,16 +95,15 @@ function FooterView(props: FooterViewProps) {
       <div className="self-stretch flex flex-col justify-start items-center gap-2.5 md:flex-row md:items-center">
         <div className="w-full flex justify-start items-center gap-1 flex-wrap content-center md:w-[577px]">
           <div className="flex-1 text-white text-2xl font-extrabold leading-9 md:text-5xl md:leading-[62px]">
-            Banking built around your future
+            Klaar om te starten met Novabank?
           </div>
         </div>
       </div>
       <div className="self-stretch flex flex-col gap-8 md:flex-row md:justify-between md:items-start">
         <div className="w-full flex flex-col justify-start items-start gap-6 md:w-[453.38px] md:gap-10">
           <div className="self-stretch text-white text-sm font-normal leading-relaxed md:text-base">
-            Novabank helps households and businesses across the Netherlands with
-            secure day-to-day banking, smart savings, and straightforward
-            financial guidance.
+            Maak een afspraak met een van onze adviseurs. Wij helpen u graag
+            verder.
           </div>
           <div className="flex items-center gap-3">
             <Link
