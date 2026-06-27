@@ -16,6 +16,8 @@ import { StoryblokStory } from '@storyblok/react/rsc'
 // Parsing: uncomment the lines below to perform runtime validation of the story content
 // import { parseContent } from '@/content'
 
+export const revalidate = 0
+
 const resolveRelations = ['teamMembers.teamMembers']
 
 type DynamicPageProps = {
