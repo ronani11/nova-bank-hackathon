@@ -19,7 +19,7 @@ const heroDescription = {
       content: [
         {
           type: 'text',
-          text: 'Uw financiele zekerheid, onze prioriteit',
+          text: 'Your financial security, our priority',
         },
       ],
     },
@@ -28,14 +28,14 @@ const heroDescription = {
       content: [
         {
           type: 'text',
-          text: 'Novabank biedt particulieren en ondernemers betrouwbare financiele diensten. Transparant, persoonlijk en altijd binnen de regels.',
+          text: 'Novabank offers private and business customers reliable financial services. Transparent, personal, and always compliant.',
         },
       ],
     },
   ],
 }
 
-const heroButtonLabels = ['Bekijk onze producten', 'Neem contact op']
+const heroButtonLabels = ['View our products', 'Contact us']
 
 const rootAlignment = (content: HeroContent): string => {
   if (!content.image) {

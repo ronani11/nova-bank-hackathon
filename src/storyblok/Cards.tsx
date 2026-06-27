@@ -18,7 +18,7 @@ const servicesDescription: RichTextContent = {
       content: [
         {
           type: 'text',
-          text: 'Onze diensten',
+          text: 'Our services',
         },
       ],
     },
@@ -35,7 +35,7 @@ const serviceCardDescriptions: RichTextContent[] = [
         content: [
           {
             type: 'text',
-            text: 'Persoonlijke lening',
+            text: 'Personal loan',
           },
         ],
       },
@@ -44,7 +44,7 @@ const serviceCardDescriptions: RichTextContent[] = [
         content: [
           {
             type: 'text',
-            text: 'Kies een persoonlijke lening met duidelijke voorwaarden en een rente die past bij uw situatie.',
+            text: 'Choose a personal loan with clear terms and an interest rate that fits your situation.',
           },
         ],
       },
@@ -59,7 +59,7 @@ const serviceCardDescriptions: RichTextContent[] = [
         content: [
           {
             type: 'text',
-            text: 'Hypotheken',
+            text: 'Mortgages',
           },
         ],
       },
@@ -68,7 +68,7 @@ const serviceCardDescriptions: RichTextContent[] = [
         content: [
           {
             type: 'text',
-            text: 'Onze hypotheekadviseurs begeleiden u stap voor stap naar een verantwoorde financiering van uw woning.',
+            text: 'Our mortgage advisors guide you step by step toward responsible financing for your home.',
           },
         ],
       },
@@ -83,7 +83,7 @@ const serviceCardDescriptions: RichTextContent[] = [
         content: [
           {
             type: 'text',
-            text: 'Beleggingen',
+            text: 'Investments',
           },
         ],
       },
@@ -92,7 +92,7 @@ const serviceCardDescriptions: RichTextContent[] = [
         content: [
           {
             type: 'text',
-            text: 'Bouw vermogen op met beleggingsoplossingen die aansluiten bij uw doelen, risicoprofiel en horizon.',
+            text: 'Build long-term wealth with investment solutions that align with your goals, risk profile, and timeline.',
           },
         ],
       },
