@@ -53,6 +53,7 @@ const navySecondaryStyle: React.CSSProperties = {
 function Hero(props: HeroProps) {
   const isNavy = props.blok.background === 'navy'
   const isNavyCentered = isNavy && !props.blok.image?.filename
+  const showStats = props.blok.show_stats ?? false
 
   if (isNavyCentered) {
     return (
@@ -84,28 +85,30 @@ function Hero(props: HeroProps) {
             />
           ))}
         </div>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '40px',
-          maxWidth: '640px',
-          margin: '40px auto 0',
-          borderTop: '1px solid rgba(255,255,255,0.2)',
-          paddingTop: '36px',
-        }}>
-          <div style={{textAlign: 'center'}}>
-            <div style={{color: '#f5a623', fontSize: '44px', fontWeight: 500}}>4.9%</div>
-            <div style={{color: 'rgba(255,255,255,0.55)', fontSize: '15px'}}>from (p.a.)</div>
+        {showStats ? (
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: '40px',
+            maxWidth: '640px',
+            margin: '40px auto 0',
+            borderTop: '1px solid rgba(255,255,255,0.2)',
+            paddingTop: '36px',
+          }}>
+            <div style={{textAlign: 'center'}}>
+              <div style={{color: '#f5a623', fontSize: '44px', fontWeight: 500}}>4.9%</div>
+              <div style={{color: 'rgba(255,255,255,0.55)', fontSize: '15px'}}>from (p.a.)</div>
+            </div>
+            <div style={{textAlign: 'center'}}>
+              <div style={{color: '#f5a623', fontSize: '44px', fontWeight: 500}}>24h</div>
+              <div style={{color: 'rgba(255,255,255,0.55)', fontSize: '15px'}}>decision</div>
+            </div>
+            <div style={{textAlign: 'center'}}>
+              <div style={{color: '#f5a623', fontSize: '44px', fontWeight: 500}}>€75k</div>
+              <div style={{color: 'rgba(255,255,255,0.55)', fontSize: '15px'}}>maximum</div>
+            </div>
           </div>
-          <div style={{textAlign: 'center'}}>
-            <div style={{color: '#f5a623', fontSize: '44px', fontWeight: 500}}>24h</div>
-            <div style={{color: 'rgba(255,255,255,0.55)', fontSize: '15px'}}>decision</div>
-          </div>
-          <div style={{textAlign: 'center'}}>
-            <div style={{color: '#f5a623', fontSize: '44px', fontWeight: 500}}>€75k</div>
-            <div style={{color: 'rgba(255,255,255,0.55)', fontSize: '15px'}}>maximum</div>
-          </div>
-        </div>
+        ) : null}
       </div>
     )
   }

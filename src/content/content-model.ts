@@ -90,6 +90,7 @@ export type HeroContent = BlockContent<{
   backgroundColor: BackgroundColor
   buttons: ButtonContent[]
   background?: 'white' | 'navy'
+  show_stats?: boolean
 }>
 
 export type TabsContent = BlockContent<{

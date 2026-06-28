@@ -176,6 +176,7 @@ export const parseHeroContent = object<HeroContent>({
   backgroundColor: parseBackgroundColor,
   buttons: withDefault(array(lazy(() => parseButtonContent)), []),
   background: withDefault(oneOf(equals('white'), equals('navy')), 'white'),
+  show_stats: withDefault(equals(true), false),
 })
 
 export const parseTabContent = object<TabContent>({
