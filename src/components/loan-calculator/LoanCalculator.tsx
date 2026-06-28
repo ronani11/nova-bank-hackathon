@@ -67,29 +67,31 @@ function LoanCalculator(props: LoanCalculatorProps) {
   return (
     <section
       {...storyblokEditable(props.blok)}
-      className="px-6 pb-8"
-      style={{ background: '#1a3d5c' }}
+      className="px-6"
+      style={{ background: 'var(--color-background-secondary)', padding: '24px' }}
     >
       <div
         className="grid gap-6"
         style={{
-          background: 'rgba(255,255,255,0.08)',
-          border: '0.5px solid rgba(255,255,255,0.12)',
+          background: 'var(--color-background-primary)',
+          border: '0.5px solid var(--color-border-tertiary)',
           borderRadius: '12px',
           padding: '20px',
           gridTemplateColumns: '1fr 1fr',
+          maxWidth: '640px',
+          margin: '0 auto',
         }}
       >
         <div className="col-span-2 flex items-center gap-2" style={{ gridColumn: '1 / -1' }}>
-          <h2 className="text-white text-[13px] font-medium">{title}</h2>
+          <h2 className="text-[13px] font-medium" style={{ color: 'var(--color-text-primary)' }}>{title}</h2>
         </div>
 
         <div className="flex flex-col gap-4">
           <div>
-            <div className="text-[10px]" style={{ color: 'rgba(255,255,255,0.55)' }}>
+            <div className="text-[10px]" style={{ color: 'var(--color-text-secondary)' }}>
               Loan amount
             </div>
-            <div className="text-white text-[14px] font-bold">
+            <div className="text-[14px] font-bold" style={{ color: 'var(--color-text-primary)' }}>
               {fmt(amount)}
             </div>
             <input
@@ -101,17 +103,17 @@ function LoanCalculator(props: LoanCalculatorProps) {
               onChange={(event) => setAmount(parseInt(event.target.value, 10))}
               className="w-full mt-2"
             />
-            <div className="flex justify-between text-[10px] mt-1" style={{ color: 'rgba(255,255,255,0.55)' }}>
+            <div className="flex justify-between text-[10px] mt-1" style={{ color: 'var(--color-text-secondary)' }}>
               <span>{fmt(minAmount)}</span>
               <span>{fmt(maxAmount)}</span>
             </div>
           </div>
 
           <div>
-            <div className="text-[10px]" style={{ color: 'rgba(255,255,255,0.55)' }}>
+            <div className="text-[10px]" style={{ color: 'var(--color-text-secondary)' }}>
               Term
             </div>
-            <div className="text-white text-[14px] font-bold">{term} months</div>
+            <div className="text-[14px] font-bold" style={{ color: 'var(--color-text-primary)' }}>{term} months</div>
             <input
               type="range"
               min={minTerm}
@@ -121,7 +123,7 @@ function LoanCalculator(props: LoanCalculatorProps) {
               onChange={(event) => setTerm(parseInt(event.target.value, 10))}
               className="w-full mt-2"
             />
-            <div className="flex justify-between text-[10px] mt-1" style={{ color: 'rgba(255,255,255,0.55)' }}>
+            <div className="flex justify-between text-[10px] mt-1" style={{ color: 'var(--color-text-secondary)' }}>
               <span>{minTerm} mo</span>
               <span>{maxTerm} mo</span>
             </div>
@@ -130,7 +132,7 @@ function LoanCalculator(props: LoanCalculatorProps) {
           <div>
             <label
               className="text-[10px] mb-1 block"
-              style={{ color: 'rgba(255,255,255,0.55)' }}
+              style={{ color: 'var(--color-text-secondary)' }}
             >
               Purpose
             </label>
@@ -138,13 +140,6 @@ function LoanCalculator(props: LoanCalculatorProps) {
               value={selectedPurpose}
               onChange={(event) => setSelectedPurpose(parseFloat(event.target.value))}
               className="w-full text-[12px]"
-              style={{
-                background: 'rgba(255,255,255,0.08)',
-                color: 'white',
-                border: '0.5px solid rgba(255,255,255,0.2)',
-                borderRadius: '6px',
-                padding: '6px 8px',
-              }}
             >
               {loanPurposes.map((purpose, index) => (
                 <option
@@ -160,7 +155,7 @@ function LoanCalculator(props: LoanCalculatorProps) {
           {showDisclaimer ? (
             <div
               className="text-[10px] text-center mt-2"
-              style={{ color: 'rgba(255,255,255,0.35)' }}
+              style={{ color: 'var(--color-text-tertiary)' }}
             >
               Warning! Borrowing money costs money.
             </div>
@@ -171,15 +166,15 @@ function LoanCalculator(props: LoanCalculatorProps) {
           <div
             className="text-center"
             style={{
-              background: 'rgba(0,0,0,0.2)',
+              background: 'var(--color-background-secondary)',
               borderRadius: '8px',
               padding: '14px',
             }}
           >
-            <div className="text-[10px]" style={{ color: 'rgba(255,255,255,0.55)' }}>
+            <div className="text-[10px]" style={{ color: 'var(--color-text-secondary)' }}>
               Monthly payment
             </div>
-            <div className="text-[26px] font-bold" style={{ color: '#f5a623' }}>
+            <div className="text-[26px] font-bold" style={{ color: '#1a3d5c' }}>
               {fmt(monthlyPayment)}
             </div>
           </div>
@@ -188,30 +183,30 @@ function LoanCalculator(props: LoanCalculatorProps) {
             <div
               className="text-center"
               style={{
-                background: 'rgba(0,0,0,0.15)',
+                background: 'var(--color-background-secondary)',
                 borderRadius: '8px',
                 padding: '10px',
               }}
             >
-              <div className="text-[10px]" style={{ color: 'rgba(255,255,255,0.5)' }}>
+              <div className="text-[10px]" style={{ color: 'var(--color-text-secondary)' }}>
                 Total repayment
               </div>
-              <div className="text-[13px] font-medium text-white">
+              <div className="text-[13px] font-medium" style={{ color: 'var(--color-text-primary)' }}>
                 {fmt(totalRepayment)}
               </div>
             </div>
             <div
               className="text-center"
               style={{
-                background: 'rgba(0,0,0,0.15)',
+                background: 'var(--color-background-secondary)',
                 borderRadius: '8px',
                 padding: '10px',
               }}
             >
-              <div className="text-[10px]" style={{ color: 'rgba(255,255,255,0.5)' }}>
+              <div className="text-[10px]" style={{ color: 'var(--color-text-secondary)' }}>
                 Total interest
               </div>
-              <div className="text-[13px] font-medium text-white">
+              <div className="text-[13px] font-medium" style={{ color: 'var(--color-text-primary)' }}>
                 {fmt(totalInterest)}
               </div>
             </div>
@@ -220,7 +215,7 @@ function LoanCalculator(props: LoanCalculatorProps) {
           <div>
             <div
               className="h-[6px] rounded-[999px] overflow-hidden"
-              style={{ background: 'rgba(255,255,255,0.12)' }}
+              style={{ background: 'var(--color-background-secondary)' }}
             >
               <div
                 className="h-full"
@@ -230,7 +225,7 @@ function LoanCalculator(props: LoanCalculatorProps) {
                 }}
               />
             </div>
-            <div className="mt-1 flex justify-between text-[10px]" style={{ color: 'rgba(255,255,255,0.4)' }}>
+            <div className="mt-1 flex justify-between text-[10px]" style={{ color: 'var(--color-text-secondary)' }}>
               <span>Loan</span>
               <span>Interest</span>
             </div>
