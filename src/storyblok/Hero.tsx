@@ -45,7 +45,7 @@ const navySecondaryStyle: React.CSSProperties = {
 
 function Hero(props: HeroProps) {
   const isNavy = props.blok.background === 'navy'
-  const isNavyCentered = isNavy && !props.blok.image
+  const isNavyCentered = isNavy && !props.blok.image?.filename
 
   if (isNavyCentered) {
     return (
@@ -53,7 +53,7 @@ function Hero(props: HeroProps) {
         {...storyblokEditable(props.blok)}
         style={{ background: '#1a3d5c', color: 'white', padding: '40px 24px', textAlign: 'center' }}
       >
-        <div style={{ maxWidth: '520px', margin: '0 auto' }}>
+        <div style={{ maxWidth: '560px', margin: '0 auto' }}>
           <div
             style={{
               color: 'white',
@@ -110,7 +110,7 @@ function Hero(props: HeroProps) {
             ))}
           </div>
         </div>
-        {props.blok.image ? (
+        {props.blok.image?.filename ? (
           <div
             className={`relative flex-1 overflow-hidden md:min-h-[650px] ${
               props.blok.imagePadding
