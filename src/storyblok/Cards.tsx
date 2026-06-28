@@ -19,7 +19,7 @@ function Cards(props: CardsProps) {
           <RichTextView doc={props.blok.description} />
         </div>
         <div className="self-stretch flex justify-start items-stretch gap-4 md:gap-6 flex-col md:flex-row">
-          {props.blok.cards?.map((card, index) => (
+          {props.blok.cards?.map((card) => (
             <Card
               className="flex-1 self-stretch"
               key={card._uid}
