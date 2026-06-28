@@ -37,8 +37,47 @@ const textAlignment = (content: HeroContent): string => {
   }
 }
 
+const navySecondaryStyle: React.CSSProperties = {
+  background: 'transparent',
+  color: '#ffffff',
+  border: '1px solid rgba(255,255,255,0.4)',
+}
+
 function Hero(props: HeroProps) {
   const isNavy = props.blok.background === 'navy'
+  const isNavyCentered = isNavy && !props.blok.image
+
+  if (isNavyCentered) {
+    return (
+      <div
+        {...storyblokEditable(props.blok)}
+        style={{ background: '#1a3d5c', color: 'white', padding: '40px 24px', textAlign: 'center' }}
+      >
+        <div style={{ maxWidth: '520px', margin: '0 auto' }}>
+          <div
+            style={{
+              color: 'white',
+              fontSize: '24px',
+              fontWeight: 500,
+              marginBottom: '8px',
+            }}
+          >
+            <RichTextView doc={props.blok.description} />
+          </div>
+          <div className="flex gap-2 flex-wrap justify-center mt-6">
+            {props.blok.buttons?.map((button) => (
+              <Button
+                key={button._uid}
+                blok={button}
+                style={button.color === 'secondary' ? navySecondaryStyle : undefined}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div
       {...storyblokEditable(props.blok)}
@@ -64,11 +103,7 @@ function Hero(props: HeroProps) {
                 blok={button}
                 style={
                   isNavy && button.color === 'secondary'
-                    ? {
-                        background: 'transparent',
-                        color: '#ffffff',
-                        border: '1px solid rgba(255,255,255,0.4)',
-                      }
+                    ? navySecondaryStyle
                     : undefined
                 }
               />
