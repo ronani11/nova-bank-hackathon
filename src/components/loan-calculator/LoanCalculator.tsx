@@ -67,7 +67,7 @@ function LoanCalculator(props: LoanCalculatorProps) {
   return (
     <section
       {...storyblokEditable(props.blok)}
-      style={{ background: 'var(--color-background-secondary)', padding: '0' }}
+      style={{ background: 'var(--color-background-secondary)', padding: '0 40px' }}
     >
       <div
         className="grid"
