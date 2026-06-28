@@ -14,6 +14,9 @@ export type LoanCalculatorProps = {
   blok: LoanCalculatorContent
 }
 
+const fmt = (n: number) =>
+  '€ ' + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+
 function LoanCalculator(props: LoanCalculatorProps) {
   const title = props.blok.title ?? 'Loan calculator'
   const minAmount = props.blok.min_amount ?? 2500
@@ -87,8 +90,7 @@ function LoanCalculator(props: LoanCalculatorProps) {
               Loan amount
             </div>
             <div className="text-white text-[14px] font-bold">
-              {'€ '}
-              {amount.toLocaleString('en-GB')}
+              {fmt(amount)}
             </div>
             <input
               type="range"
@@ -100,8 +102,8 @@ function LoanCalculator(props: LoanCalculatorProps) {
               className="w-full mt-2"
             />
             <div className="flex justify-between text-[10px] mt-1" style={{ color: 'rgba(255,255,255,0.55)' }}>
-              <span>{'€ ' + minAmount.toLocaleString('en-GB')}</span>
-              <span>{'€ ' + maxAmount.toLocaleString('en-GB')}</span>
+              <span>{fmt(minAmount)}</span>
+              <span>{fmt(maxAmount)}</span>
             </div>
           </div>
 
@@ -178,8 +180,7 @@ function LoanCalculator(props: LoanCalculatorProps) {
               Monthly payment
             </div>
             <div className="text-[26px] font-bold" style={{ color: '#f5a623' }}>
-              {'€ '}
-              {monthlyPayment.toLocaleString('en-GB')}
+              {fmt(monthlyPayment)}
             </div>
           </div>
 
@@ -196,8 +197,7 @@ function LoanCalculator(props: LoanCalculatorProps) {
                 Total repayment
               </div>
               <div className="text-[13px] font-medium text-white">
-                {'€ '}
-                {totalRepayment.toLocaleString('en-GB')}
+                {fmt(totalRepayment)}
               </div>
             </div>
             <div
@@ -212,8 +212,7 @@ function LoanCalculator(props: LoanCalculatorProps) {
                 Total interest
               </div>
               <div className="text-[13px] font-medium text-white">
-                {'€ '}
-                {totalInterest.toLocaleString('en-GB')}
+                {fmt(totalInterest)}
               </div>
             </div>
           </div>
