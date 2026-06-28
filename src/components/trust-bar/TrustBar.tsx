@@ -11,24 +11,24 @@ function TrustBar(props: TrustBarProps) {
     <section
       {...storyblokEditable(props.blok)}
       style={{
-        padding: '18px 48px',
+        padding: '28px 48px',
         background: 'var(--color-background-secondary)',
       }}
     >
-      <div className="mx-auto grid max-w-7xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto grid max-w-7xl gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {props.blok.items?.map((item) => (
           <div
             key={item._uid}
-            className="flex items-center rounded-xl border border-slate-200 bg-white px-6 py-5 text-slate-900"
+            className="flex items-center rounded-xl border border-slate-200 bg-white px-8 py-6 text-slate-900"
             style={{
-              gap: '10px',
-              fontSize: '17px',
-              fontWeight: 500,
+              gap: '12px',
+              fontSize: '19px',
+              fontWeight: 600,
             }}
           >
             <span
               style={{
-                fontSize: '20px',
+                fontSize: '24px',
                 color: '#2e7d6b',
               }}
               aria-hidden="true"
