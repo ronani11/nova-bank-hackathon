@@ -96,21 +96,23 @@ function Hero(props: HeroProps) {
             ))}
           </div>
         </div>
-        <div
-          className={`relative flex-1 overflow-hidden md:min-h-[650px] ${
-            props.blok.imagePadding
-              ? 'rounded-xl max-h-[60vw] min-h-[40vw] md:max-h-[800px]'
-              : 'rounded-none max-h-[100%] min-h-[40vw] md:min-h-[100%]'
-          } `}
-        >
-          <NextImage
-            src="https://images.unsplash.com/photo-1560472355-536de3962603?w=1200&q=80"
-            alt="Financial advisor in a professional consultation with a client"
-            width={1200}
-            height={650}
-            className={`absolute h-full w-full object-cover`}
-          />
-        </div>
+        {props.blok.image ? (
+          <div
+            className={`relative flex-1 overflow-hidden md:min-h-[650px] ${
+              props.blok.imagePadding
+                ? 'rounded-xl max-h-[60vw] min-h-[40vw] md:max-h-[800px]'
+                : 'rounded-none max-h-[100%] min-h-[40vw] md:min-h-[100%]'
+            } `}
+          >
+            <NextImage
+              src={props.blok.image?.filename}
+              alt={props.blok.image?.alt ?? ''}
+              width={1200}
+              height={650}
+              className={`absolute h-full w-full object-cover`}
+            />
+          </div>
+        ) : null}
       </div>
     </div>
   )
