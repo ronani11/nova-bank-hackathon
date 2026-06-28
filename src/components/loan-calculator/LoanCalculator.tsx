@@ -83,14 +83,16 @@ function LoanCalculator(props: LoanCalculatorProps) {
           margin: '0 auto',
         }}
       >
-        <div className="col-span-2 flex items-center gap-2" style={{ gridColumn: '1 / -1' }}>
+        <div
+          className="col-span-2 flex items-center gap-2"
+          style={{ gridColumn: '1 / -1', marginBottom: '20px' }}
+        >
           <h2
             className="font-medium"
             style={{
               fontSize: '18px',
               fontWeight: 500,
               color: 'var(--color-text-primary)',
-              marginBottom: '20px',
             }}
           >
             {title}
@@ -163,29 +165,6 @@ function LoanCalculator(props: LoanCalculatorProps) {
             </select>
           </div>
 
-          {showDisclaimer ? (
-            <div
-              style={{
-                background: 'var(--color-background-warning)',
-                border: '0.5px solid var(--color-border-warning)',
-                borderRadius: '8px',
-                padding: '10px 14px',
-                marginTop: '16px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-              }}
-            >
-              <i
-                className="ti ti-alert-triangle"
-                style={{ fontSize: '14px', color: 'var(--color-text-warning)' }}
-                aria-hidden="true"
-              />
-              <span style={{ fontSize: '12px', color: 'var(--color-text-warning)', fontWeight: 500 }}>
-                Warning! Borrowing money costs money.
-              </span>
-            </div>
-          ) : null}
         </div>
 
         <div className="flex flex-col gap-3">
@@ -275,6 +254,31 @@ function LoanCalculator(props: LoanCalculatorProps) {
           </button>
         </div>
       </div>
+
+      {showDisclaimer ? (
+        <div
+          style={{
+            background: 'var(--color-background-warning)',
+            border: '0.5px solid var(--color-border-warning)',
+            borderRadius: '8px',
+            padding: '10px 14px',
+            margin: '16px auto 0',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            maxWidth: '900px',
+          }}
+        >
+          <i
+            className="ti ti-alert-triangle"
+            style={{ fontSize: '14px', color: 'var(--color-text-warning)' }}
+            aria-hidden="true"
+          />
+          <span style={{ fontSize: '12px', color: 'var(--color-text-warning)', fontWeight: 500 }}>
+            Warning! Borrowing money costs money.
+          </span>
+        </div>
+      ) : null}
     </section>
   )
 }
