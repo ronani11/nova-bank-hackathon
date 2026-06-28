@@ -1,104 +1,12 @@
 import * as React from 'react'
 import { storyblokEditable } from '@storyblok/react/rsc'
 import type { CardsContent } from '../content'
-import type { RichTextContent } from '../delivery-api'
 import RichTextView from '../components/RichText'
 import Card from './Card'
 
 export type CardsProps = {
   blok: CardsContent
 }
-
-const servicesDescription: RichTextContent = {
-  type: 'doc',
-  content: [
-    {
-      type: 'heading',
-      attrs: { level: 2 },
-      content: [
-        {
-          type: 'text',
-          text: 'Our services',
-        },
-      ],
-    },
-  ],
-}
-
-const serviceCardDescriptions: RichTextContent[] = [
-  {
-    type: 'doc',
-    content: [
-      {
-        type: 'heading',
-        attrs: { level: 3 },
-        content: [
-          {
-            type: 'text',
-            text: 'Personal loan',
-          },
-        ],
-      },
-      {
-        type: 'paragraph',
-        content: [
-          {
-            type: 'text',
-            text: 'Choose a personal loan with clear terms and an interest rate that fits your situation.',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    type: 'doc',
-    content: [
-      {
-        type: 'heading',
-        attrs: { level: 3 },
-        content: [
-          {
-            type: 'text',
-            text: 'Mortgages',
-          },
-        ],
-      },
-      {
-        type: 'paragraph',
-        content: [
-          {
-            type: 'text',
-            text: 'Our mortgage advisors guide you step by step toward responsible financing for your home.',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    type: 'doc',
-    content: [
-      {
-        type: 'heading',
-        attrs: { level: 3 },
-        content: [
-          {
-            type: 'text',
-            text: 'Investments',
-          },
-        ],
-      },
-      {
-        type: 'paragraph',
-        content: [
-          {
-            type: 'text',
-            text: 'Build long-term wealth with investment solutions that align with your goals, risk profile, and timeline.',
-          },
-        ],
-      },
-    ],
-  },
-]
 
 function Cards(props: CardsProps) {
   return (
@@ -108,7 +16,7 @@ function Cards(props: CardsProps) {
     >
       <div className="max-w-6xl flex flex-col gap-10">
         <div className="self-stretch flex-1 inline-flex flex-col justify-center items-start gap-2">
-          <RichTextView doc={servicesDescription} />
+          <RichTextView doc={props.blok.description} />
         </div>
         <div className="self-stretch flex justify-start items-stretch gap-4 md:gap-6 flex-col md:flex-row">
           {props.blok.cards?.map((card, index) => (
@@ -117,7 +25,7 @@ function Cards(props: CardsProps) {
               key={card._uid}
               blok={{
                 ...card,
-                description: serviceCardDescriptions[index] ?? card.description,
+                description: card.description,
               }}
             />
           ))}
