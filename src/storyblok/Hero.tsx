@@ -38,12 +38,12 @@ const textAlignment = (content: HeroContent): string => {
 }
 
 function Hero(props: HeroProps) {
+  const isNavy = props.blok.background === 'navy'
   return (
     <div
       {...storyblokEditable(props.blok)}
-      className={`self-stretch ${backgroundColor(
-        props.blok.backgroundColor,
-      )} flex justify-center`}
+      className={`self-stretch ${isNavy ? '' : backgroundColor(props.blok.backgroundColor)} flex justify-center`}
+      style={isNavy ? { background: '#1a3d5c', color: 'white' } : undefined}
     >
       <div
         className={`w-full ${

@@ -87,6 +87,7 @@ export type HeroContent = BlockContent<{
   description: RichTextContent
   backgroundColor: BackgroundColor
   buttons: ButtonContent[]
+  background?: 'white' | 'navy'
 }>
 
 export type TabsContent = BlockContent<{
