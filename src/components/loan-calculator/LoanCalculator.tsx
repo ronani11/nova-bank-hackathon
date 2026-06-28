@@ -3,35 +3,15 @@
 import * as React from 'react'
 import { useMemo, useState } from 'react'
 import { storyblokEditable } from '@storyblok/react/rsc'
+import type { LoanCalculatorContent } from '../../content'
 
 export interface LoanPurpose {
   label: string
   interest_rate: number
 }
 
-export interface LoanCalculatorStoryblok {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [key: string]: any
-  _uid: string
-  _editable?: string
-  component: 'loan_calculator'
-  title?: string
-  min_amount?: number
-  max_amount?: number
-  step_amount?: number
-  default_amount?: number
-  min_term?: number
-  max_term?: number
-  step_term?: number
-  default_term?: number
-  loan_purposes?: LoanPurpose[]
-  cta_text?: string
-  cta_url?: { url: string; cached_url?: string }
-  show_disclaimer?: boolean
-}
-
 export type LoanCalculatorProps = {
-  blok: LoanCalculatorStoryblok
+  blok: LoanCalculatorContent
 }
 
 function LoanCalculator(props: LoanCalculatorProps) {
@@ -45,7 +25,10 @@ function LoanCalculator(props: LoanCalculatorProps) {
   const stepTerm = props.blok.step_term ?? 12
   const defaultTerm = props.blok.default_term ?? 60
   const ctaText = props.blok.cta_text ?? 'Apply for your personal loan'
-  const ctaUrl = props.blok.cta_url?.url ?? props.blok.cta_url?.cached_url ?? '#'
+  const ctaUrl =
+    props.blok.cta_url && 'email' in props.blok.cta_url
+      ? `mailto:${props.blok.cta_url.email}`
+      : props.blok.cta_url?.cached_url ?? '#'
   const showDisclaimer = props.blok.show_disclaimer ?? true
   const loanPurposes =
     props.blok.loan_purposes && props.blok.loan_purposes.length > 0
