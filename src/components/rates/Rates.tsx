@@ -17,9 +17,9 @@ function Rates(props: RatesProps) {
     >
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8">
-          <h2 className="text-[20px] font-medium">{props.blok.title}</h2>
+          <h2 className="text-[44px] font-medium">{props.blok.title}</h2>
           {props.blok.subtitle ? (
-            <p className="mt-2 text-sm text-[#666]">{props.blok.subtitle}</p>
+            <p className="mt-2 text-[20px] text-[#666]">{props.blok.subtitle}</p>
           ) : null}
         </div>
 
