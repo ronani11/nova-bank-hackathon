@@ -78,11 +78,6 @@ function LoanCalculator(props: LoanCalculatorProps) {
         }}
       >
         <div className="col-span-2 flex items-center gap-2" style={{ gridColumn: '1 / -1' }}>
-          <span className="text-[16px] leading-none" style={{ color: '#f5a623' }}>
-            <span className="ti-calculator" aria-hidden="true">
-              ⌘
-            </span>
-          </span>
           <h2 className="text-white text-[13px] font-medium">{title}</h2>
         </div>
 
