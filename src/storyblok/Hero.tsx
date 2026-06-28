@@ -10,33 +10,6 @@ export type HeroProps = {
   blok: HeroContent
 }
 
-const heroDescription = {
-  type: 'doc',
-  content: [
-    {
-      type: 'heading',
-      attrs: { level: 1 },
-      content: [
-        {
-          type: 'text',
-          text: 'Your financial security, our priority',
-        },
-      ],
-    },
-    {
-      type: 'paragraph',
-      content: [
-        {
-          type: 'text',
-          text: 'Novabank offers private and business customers reliable financial services. Transparent, personal, and always compliant.',
-        },
-      ],
-    },
-  ],
-}
-
-const heroButtonLabels = ['View our products', 'Contact us']
-
 const rootAlignment = (content: HeroContent): string => {
   if (!content.image) {
     return 'flex flex-col md:flex-col'
@@ -83,15 +56,12 @@ function Hero(props: HeroProps) {
           ${textAlignment(props.blok)}
         `}
         >
-          <RichTextView doc={heroDescription} />
+          <RichTextView doc={props.blok.description} />
           <div className="flex gap-2 md:gap-4 flex-wrap items-center">
-            {props.blok.buttons?.map((button, index) => (
+            {props.blok.buttons?.map((button) => (
               <Button
                 key={button._uid}
-                blok={{
-                  ...button,
-                  text: heroButtonLabels[index] ?? button.text,
-                }}
+                blok={button}
               />
             ))}
           </div>
