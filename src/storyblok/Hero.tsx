@@ -59,22 +59,23 @@ function Hero(props: HeroProps) {
       <div
         {...storyblokEditable(props.blok)}
         className="navy-hero-centered"
-        style={{ background: '#1a3d5c', color: 'white', padding: '56px 48px', textAlign: 'center' }}
+        style={{ background: '#1a3d5c', color: 'white', padding: '64px 48px', textAlign: 'center' }}
       >
         {/* eslint-disable-next-line react/no-danger */}
         <style>{`
           .navy-hero-centered .rich-text h1,
           .navy-hero-centered .rich-text h2,
           .navy-hero-centered .rich-text h3 {
-            font-size: 36px; font-weight: 500; color: white; margin-bottom: 12px;
+            font-size: 40px; font-weight: 500; color: white; 
+            max-width: 700px; margin: 0 auto 12px; text-align: center;
           }
           .navy-hero-centered .rich-text p {
             font-size: 14px; color: rgba(255,255,255,0.75);
-            max-width: 600px; margin: 0 auto 20px;
+            max-width: 520px; margin: 0 auto 20px; text-align: center;
           }
         `}</style>
         <RichTextView doc={props.blok.description} />
-        <div className="flex gap-2 flex-wrap justify-center mt-6">
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', flexWrap: 'wrap' }}>
           {props.blok.buttons?.map((button) => (
             <Button
               key={button._uid}
