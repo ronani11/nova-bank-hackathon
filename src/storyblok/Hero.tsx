@@ -62,6 +62,15 @@ function Hero(props: HeroProps) {
               <Button
                 key={button._uid}
                 blok={button}
+                style={
+                  isNavy && button.color === 'secondary'
+                    ? {
+                        background: 'transparent',
+                        color: '#ffffff',
+                        border: '1px solid rgba(255,255,255,0.4)',
+                      }
+                    : undefined
+                }
               />
             ))}
           </div>

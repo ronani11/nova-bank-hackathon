@@ -11,6 +11,7 @@ import type {
 
 export type ButtonProps = {
   blok: ButtonContent
+  style?: React.CSSProperties
 }
 
 const classFromContent = (content: ButtonContent): string =>
@@ -23,7 +24,7 @@ const colorStyles = (content: ButtonContent): string => {
     case 'primary':
       return 'bg-stone-900 hover:bg-stone-800 text-white hover:border-stone-800'
     case 'secondary':
-      return 'bg-white color-stone-900 hover:bg-stone-100 hover:border-stone-900'
+      return 'bg-white text-stone-900 hover:bg-stone-100 hover:border-stone-900'
   }
 }
 
@@ -45,6 +46,7 @@ function Button(props: ButtonProps) {
           href={(props.blok.link as UrlLinkContent)?.cached_url}
           target={props.blok.link?.target}
           className={classFromContent(props.blok)}
+          style={props.style}
         >
           {props.blok.text}
         </Link>
@@ -58,6 +60,7 @@ function Button(props: ButtonProps) {
           )}
           target={props.blok.link?.target}
           className={classFromContent(props.blok)}
+          style={props.style}
         >
           {props.blok.text}
         </Link>
@@ -67,6 +70,7 @@ function Button(props: ButtonProps) {
           {...storyblokEditable(props.blok)}
           href={`mailto:${(props.blok.link as EmailLinkContent)?.email}`}
           className={classFromContent(props.blok)}
+          style={props.style}
         >
           {props.blok.text}
         </Link>
@@ -77,6 +81,7 @@ function Button(props: ButtonProps) {
           {...storyblokEditable(props.blok)}
           href={(props.blok.link as AssetLinkContent)?.cached_url}
           className={classFromContent(props.blok)}
+          style={props.style}
         >
           {props.blok.text}
         </Link>
