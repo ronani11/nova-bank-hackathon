@@ -52,6 +52,9 @@ const navySecondaryStyle: React.CSSProperties = {
 
 function Hero(props: HeroProps) {
   const isNavy = props.blok.background === 'navy'
+    && props.blok.background !== undefined
+    && props.blok.background !== null
+    && props.blok.background !== 'white'
   const isNavyCentered = isNavy && !props.blok.image?.filename
   const showStats = props.blok.show_stats ?? false
 
