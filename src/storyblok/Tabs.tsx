@@ -33,8 +33,8 @@ function Tabs(props: TabsProps) {
                 onClick={(_event) => setCurrentTabUid(tab._uid)}
                 className={`flex-1 py-2 text-sm sm:py-3 sm:text-base md:py-4 ${
                   currentTabUid === tab._uid
-                    ? 'bg-stone-800 text-white'
-                    : 'bg-transparent text-stone-800 '
+                    ? 'bg-[#1a3d5c] text-white border border-[#1a3d5c]'
+                    : 'bg-transparent text-[#1a3d5c] border border-[#1a3d5c]'
                 } rounded-lg flex justify-center items-center gap-0.5`}
               >
                 <div className="justify-center text-base font-bold leading-snug">
@@ -47,7 +47,7 @@ function Tabs(props: TabsProps) {
             .find((tab) => tab._uid === currentTabUid)
             ?.content?.map((content) => (
               <div
-                className="rounded-xl md:rounded-3xl overflow-hidden flex flex-col items-stretch gap-2"
+                className="rounded-xl md:rounded-3xl overflow-hidden flex flex-col items-stretch gap-2 bg-white border-[0.5px] border-[#e0e0e0]"
                 key={content._uid}
               >
                 <Content blok={content} />
