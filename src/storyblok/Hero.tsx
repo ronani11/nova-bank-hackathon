@@ -37,6 +37,13 @@ const textAlignment = (content: HeroContent): string => {
   }
 }
 
+const navyPrimaryStyle: React.CSSProperties = {
+  background: '#f5a623',
+  color: '#1a1a2e',
+  border: 'none',
+  borderRadius: '999px',
+}
+
 const navySecondaryStyle: React.CSSProperties = {
   background: 'transparent',
   color: '#ffffff',
@@ -69,7 +76,7 @@ function Hero(props: HeroProps) {
               <Button
                 key={button._uid}
                 blok={button}
-                style={button.color === 'secondary' ? navySecondaryStyle : undefined}
+                style={button.color === 'secondary' ? navySecondaryStyle : navyPrimaryStyle}
               />
             ))}
           </div>
@@ -102,8 +109,10 @@ function Hero(props: HeroProps) {
                 key={button._uid}
                 blok={button}
                 style={
-                  isNavy && button.color === 'secondary'
-                    ? navySecondaryStyle
+                  isNavy
+                    ? button.color === 'secondary'
+                      ? navySecondaryStyle
+                      : navyPrimaryStyle
                     : undefined
                 }
               />
