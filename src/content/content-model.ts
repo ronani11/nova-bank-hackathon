@@ -21,6 +21,8 @@ export type Content =
   | ButtonContent
   | StepsContent
   | StepItemContent
+  | TrustBarContent
+  | TrustBarItemContent
   | RatesContent
   | RateItemContent
   | LoanCalculatorContent
@@ -129,6 +131,17 @@ export type StepItemContent = BlockContent<{
   component: 'step_item'
   title: string
   description: string
+}>
+
+export type TrustBarItemContent = BlockContent<{
+  component: 'trust_item'
+  icon: string
+  label: string
+}>
+
+export type TrustBarContent = BlockContent<{
+  component: 'trust_bar'
+  items: TrustBarItemContent[]
 }>
 
 export type StepsContent = BlockContent<{

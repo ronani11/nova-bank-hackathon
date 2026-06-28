@@ -11,6 +11,7 @@ import type {
   CardContent,
   ButtonContent,
   StepsContent,
+  TrustBarContent,
   RatesContent,
   LoanCalculatorContent,
 } from '../content'
@@ -24,6 +25,7 @@ import Tabs from './Tabs'
 import Card from './Card'
 import Button from './Button'
 import Steps from '../components/steps/Steps'
+import TrustBar from '../components/trust-bar'
 import Rates from '../components/rates/Rates'
 import LoanCalculator from '../components/loan-calculator/LoanCalculator'
 
@@ -63,6 +65,9 @@ function Content(props: ContentProps) {
       ) : null}
       {props.blok.component === 'steps' ? (
         <Steps blok={props.blok as StepsContent} />
+      ) : null}
+      {props.blok.component === 'trust_bar' ? (
+        <TrustBar blok={props.blok as TrustBarContent} />
       ) : null}
       {props.blok.component === 'rates' ? (
         <Rates blok={props.blok as RatesContent} />

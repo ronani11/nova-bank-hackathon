@@ -35,6 +35,8 @@ import type {
   ButtonContent,
   StepItemContent,
   StepsContent,
+  TrustBarContent,
+  TrustBarItemContent,
   RateItemContent,
   RatesContent,
   LoanPurposeContent,
@@ -57,6 +59,8 @@ export const parseContent: Parser<Content> = lazy(() =>
     parseButtonContent,
     parseStepsContent,
     parseStepItemContent,
+    parseTrustBarContent,
+    parseTrustBarItemContent,
     parseRatesContent,
     parseRateItemContent,
     parseLoanCalculatorContent,
@@ -234,6 +238,21 @@ export const parseStepItemContent = object<StepItemContent>({
   _editable: optional(parseString),
   title: parseString,
   description: parseString,
+})
+
+export const parseTrustBarItemContent = object<TrustBarItemContent>({
+  component: equals('trust_item'),
+  _uid: parseString,
+  _editable: optional(parseString),
+  icon: parseString,
+  label: parseString,
+})
+
+export const parseTrustBarContent = object<TrustBarContent>({
+  component: equals('trust_bar'),
+  _uid: parseString,
+  _editable: optional(parseString),
+  items: withDefault(array(lazy(() => parseTrustBarItemContent)), []),
 })
 
 export const parseStepsContent = object<StepsContent>({

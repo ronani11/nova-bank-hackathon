@@ -9,6 +9,7 @@ import Card from '../storyblok/Card'
 import Button from '../storyblok/Button'
 import Steps from '../components/steps/Steps'
 import StepItem from '../components/steps/StepItem'
+import TrustBar from '../components/trust-bar'
 import Rates from '../components/rates/Rates'
 import RateItem from '../components/rates/RateItem'
 import LoanCalculator from '../components/loan-calculator/LoanCalculator'
@@ -29,6 +30,7 @@ export const getStoryblokApi = storyblokInit({
     button: Button,
     steps: Steps,
     step_item: StepItem,
+    trust_bar: TrustBar,
     rates: Rates,
     rate_item: RateItem,
     loan_calculator: LoanCalculator,
