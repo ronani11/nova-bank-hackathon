@@ -10,6 +10,7 @@ export interface LoanPurpose {
 }
 
 export interface LoanCalculatorStoryblok {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any
   _uid: string
   _editable?: string
