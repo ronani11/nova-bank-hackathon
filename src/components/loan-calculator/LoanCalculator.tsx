@@ -84,7 +84,17 @@ function LoanCalculator(props: LoanCalculatorProps) {
         }}
       >
         <div className="col-span-2 flex items-center gap-2" style={{ gridColumn: '1 / -1' }}>
-          <h2 className="text-[13px] font-medium" style={{ color: 'var(--color-text-primary)' }}>{title}</h2>
+          <h2
+            className="font-medium"
+            style={{
+              fontSize: '18px',
+              fontWeight: 500,
+              color: 'var(--color-text-primary)',
+              marginBottom: '20px',
+            }}
+          >
+            {title}
+          </h2>
         </div>
 
         <div className="flex flex-col gap-4">
@@ -155,10 +165,25 @@ function LoanCalculator(props: LoanCalculatorProps) {
 
           {showDisclaimer ? (
             <div
-              className="text-[10px] text-center mt-2"
-              style={{ color: 'var(--color-text-tertiary)' }}
+              style={{
+                background: 'var(--color-background-warning)',
+                border: '0.5px solid var(--color-border-warning)',
+                borderRadius: '8px',
+                padding: '10px 14px',
+                marginTop: '16px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+              }}
             >
-              Warning! Borrowing money costs money.
+              <i
+                className="ti ti-alert-triangle"
+                style={{ fontSize: '14px', color: 'var(--color-text-warning)' }}
+                aria-hidden="true"
+              />
+              <span style={{ fontSize: '12px', color: 'var(--color-text-warning)', fontWeight: 500 }}>
+                Warning! Borrowing money costs money.
+              </span>
             </div>
           ) : null}
         </div>
