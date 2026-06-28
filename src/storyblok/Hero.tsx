@@ -84,6 +84,28 @@ function Hero(props: HeroProps) {
             />
           ))}
         </div>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          gap: '24px',
+          maxWidth: '480px',
+          margin: '32px auto 0',
+          borderTop: '1px solid rgba(255,255,255,0.15)',
+          paddingTop: '24px',
+        }}>
+          <div style={{textAlign: 'center'}}>
+            <div style={{color: '#f5a623', fontSize: '24px', fontWeight: 500}}>4.9%</div>
+            <div style={{color: 'rgba(255,255,255,0.55)', fontSize: '11px'}}>from (p.a.)</div>
+          </div>
+          <div style={{textAlign: 'center'}}>
+            <div style={{color: '#f5a623', fontSize: '24px', fontWeight: 500}}>24h</div>
+            <div style={{color: 'rgba(255,255,255,0.55)', fontSize: '11px'}}>decision</div>
+          </div>
+          <div style={{textAlign: 'center'}}>
+            <div style={{color: '#f5a623', fontSize: '24px', fontWeight: 500}}>€75k</div>
+            <div style={{color: 'rgba(255,255,255,0.55)', fontSize: '11px'}}>maximum</div>
+          </div>
+        </div>
       </div>
     )
   }

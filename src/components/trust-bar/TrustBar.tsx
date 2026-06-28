@@ -19,16 +19,16 @@ function TrustBar(props: TrustBarProps) {
         {props.blok.items?.map((item) => (
           <div
             key={item._uid}
-            className="flex items-center rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900"
+            className="flex items-center rounded-xl border border-slate-200 bg-white px-5 py-4 text-slate-900"
             style={{
-              gap: '8px',
-              fontSize: '13px',
+              gap: '10px',
+              fontSize: '15px',
               fontWeight: 500,
             }}
           >
             <span
               style={{
-                fontSize: '14px',
+                fontSize: '18px',
                 color: '#2e7d6b',
               }}
               aria-hidden="true"
