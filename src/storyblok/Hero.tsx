@@ -58,28 +58,30 @@ function Hero(props: HeroProps) {
     return (
       <div
         {...storyblokEditable(props.blok)}
-        style={{ background: '#1a3d5c', color: 'white', padding: '40px 24px', textAlign: 'center' }}
+        className="navy-hero-centered"
+        style={{ background: '#1a3d5c', color: 'white', padding: '56px 48px', textAlign: 'center' }}
       >
-        <div style={{ maxWidth: '560px', margin: '0 auto' }}>
-          <div
-            style={{
-              color: 'white',
-              fontSize: '24px',
-              fontWeight: 500,
-              marginBottom: '8px',
-            }}
-          >
-            <RichTextView doc={props.blok.description} />
-          </div>
-          <div className="flex gap-2 flex-wrap justify-center mt-6">
-            {props.blok.buttons?.map((button) => (
-              <Button
-                key={button._uid}
-                blok={button}
-                style={button.color === 'secondary' ? navySecondaryStyle : navyPrimaryStyle}
-              />
-            ))}
-          </div>
+        {/* eslint-disable-next-line react/no-danger */}
+        <style>{`
+          .navy-hero-centered .rich-text h1,
+          .navy-hero-centered .rich-text h2,
+          .navy-hero-centered .rich-text h3 {
+            font-size: 36px; font-weight: 500; color: white; margin-bottom: 12px;
+          }
+          .navy-hero-centered .rich-text p {
+            font-size: 14px; color: rgba(255,255,255,0.75);
+            max-width: 600px; margin: 0 auto 20px;
+          }
+        `}</style>
+        <RichTextView doc={props.blok.description} />
+        <div className="flex gap-2 flex-wrap justify-center mt-6">
+          {props.blok.buttons?.map((button) => (
+            <Button
+              key={button._uid}
+              blok={button}
+              style={button.color === 'secondary' ? navySecondaryStyle : navyPrimaryStyle}
+            />
+          ))}
         </div>
       </div>
     )
