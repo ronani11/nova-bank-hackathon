@@ -19,6 +19,11 @@ export type Content =
   | TeamMembersContent
   | TeamMemberContent
   | ButtonContent
+  | StepsContent
+  | StepItemContent
+  | RatesContent
+  | RateItemContent
+  | LoanCalculatorContent
 
 /**
  * When the parsing of a component fails, fall back fack to this component.
@@ -117,4 +122,55 @@ export type ButtonContent = BlockContent<{
   text: string
   link?: LinkContent
   color: 'primary' | 'secondary'
+}>
+
+export type StepItemContent = BlockContent<{
+  component: 'step_item'
+  title: string
+  description: string
+}>
+
+export type StepsContent = BlockContent<{
+  component: 'steps'
+  title: string
+  subtitle?: string
+  items: StepItemContent[]
+}>
+
+export type RateItemContent = BlockContent<{
+  component: 'rate_item'
+  purpose: string
+  rate: string
+  featured?: boolean
+}>
+
+export type RatesContent = BlockContent<{
+  component: 'rates'
+  title: string
+  subtitle?: string
+  footnote?: string
+  items: RateItemContent[]
+}>
+
+export type LoanPurposeContent = BlockContent<{
+  component: 'loan_purpose'
+  label: string
+  interest_rate: number
+}>
+
+export type LoanCalculatorContent = BlockContent<{
+  component: 'loan_calculator'
+  title?: string
+  min_amount?: number
+  max_amount?: number
+  step_amount?: number
+  default_amount?: number
+  min_term?: number
+  max_term?: number
+  step_term?: number
+  default_term?: number
+  loan_purposes?: LoanPurposeContent[]
+  cta_text?: string
+  cta_url?: LinkContent
+  show_disclaimer?: boolean
 }>

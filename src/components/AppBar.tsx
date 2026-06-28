@@ -14,11 +14,11 @@ const tabs = [
     href: '/',
   },
   {
-    label: 'Banking',
+    label: 'Services',
     href: '/services',
   },
   {
-    label: 'About Novabank',
+    label: 'About',
     href: '/about',
   },
 ]

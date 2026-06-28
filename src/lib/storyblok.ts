@@ -7,6 +7,11 @@ import Hero from '../storyblok/Hero'
 import Tabs from '../storyblok/Tabs'
 import Card from '../storyblok/Card'
 import Button from '../storyblok/Button'
+import Steps from '../components/steps/Steps'
+import StepItem from '../components/steps/StepItem'
+import Rates from '../components/rates/Rates'
+import RateItem from '../components/rates/RateItem'
+import LoanCalculator from '../components/loan-calculator/LoanCalculator'
 import { apiPlugin, storyblokInit } from '@storyblok/react/rsc'
 
 export const getStoryblokApi = storyblokInit({
@@ -22,6 +27,11 @@ export const getStoryblokApi = storyblokInit({
     hero: Hero,
     tabs: Tabs,
     button: Button,
+    steps: Steps,
+    step_item: StepItem,
+    rates: Rates,
+    rate_item: RateItem,
+    loan_calculator: LoanCalculator,
   },
   apiOptions: {
     /** Set the correct region for your space. Learn more: https:/www.storyblok.com/docs/packages/storyblok-js#example-region-parameter */

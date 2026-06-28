@@ -10,6 +10,9 @@ import type {
   TeamMembersContent,
   CardContent,
   ButtonContent,
+  StepsContent,
+  RatesContent,
+  LoanCalculatorContent,
 } from '../content'
 import TeamMembers from './TeamMembers'
 import Page from './Page'
@@ -20,6 +23,9 @@ import Hero from './Hero'
 import Tabs from './Tabs'
 import Card from './Card'
 import Button from './Button'
+import Steps from '../components/steps/Steps'
+import Rates from '../components/rates/Rates'
+import LoanCalculator from '../components/loan-calculator/LoanCalculator'
 
 export type ContentProps = {
   blok: Content
@@ -54,6 +60,15 @@ function Content(props: ContentProps) {
       ) : null}
       {props.blok.component === 'button' ? (
         <Button blok={props.blok as ButtonContent} />
+      ) : null}
+      {props.blok.component === 'steps' ? (
+        <Steps blok={props.blok as StepsContent} />
+      ) : null}
+      {props.blok.component === 'rates' ? (
+        <Rates blok={props.blok as RatesContent} />
+      ) : null}
+      {props.blok.component === 'loan_calculator' ? (
+        <LoanCalculator blok={props.blok as LoanCalculatorContent} />
       ) : null}
     </>
   )

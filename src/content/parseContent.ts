@@ -33,6 +33,12 @@ import type {
   TeamMembersContent,
   BackgroundColor,
   ButtonContent,
+  StepItemContent,
+  StepsContent,
+  RateItemContent,
+  RatesContent,
+  LoanPurposeContent,
+  LoanCalculatorContent,
 } from '.'
 
 // Recursive parsers require lazy loading
@@ -49,6 +55,11 @@ export const parseContent: Parser<Content> = lazy(() =>
     parseTeamMembersContent,
     parseTeamMemberContent,
     parseButtonContent,
+    parseStepsContent,
+    parseStepItemContent,
+    parseRatesContent,
+    parseRateItemContent,
+    parseLoanCalculatorContent,
   ),
 )
 
@@ -214,4 +225,67 @@ export const parseButtonContent = object<ButtonContent>({
   text: parseString,
   link: withDefault(parseLinkContent, undefined),
   color: withDefault(oneOf(equals('primary'), equals('secondary')), 'primary'),
+})
+
+export const parseStepItemContent = object<StepItemContent>({
+  component: equals('step_item'),
+  _uid: parseString,
+  _editable: optional(parseString),
+  title: parseString,
+  description: parseString,
+})
+
+export const parseStepsContent = object<StepsContent>({
+  component: equals('steps'),
+  _uid: parseString,
+  _editable: optional(parseString),
+  title: parseString,
+  subtitle: optional(withDefault(parseString, undefined)),
+  items: withDefault(array(parseStepItemContent), []),
+})
+
+export const parseRateItemContent = object<RateItemContent>({
+  component: equals('rate_item'),
+  _uid: parseString,
+  _editable: optional(parseString),
+  purpose: parseString,
+  rate: parseString,
+  featured: withDefault(equals(true), false),
+})
+
+export const parseRatesContent = object<RatesContent>({
+  component: equals('rates'),
+  _uid: parseString,
+  _editable: optional(parseString),
+  title: parseString,
+  subtitle: optional(withDefault(parseString, undefined)),
+  footnote: optional(withDefault(parseString, undefined)),
+  items: withDefault(array(parseRateItemContent), []),
+})
+
+export const parseLoanPurposeContent = object<LoanPurposeContent>({
+  component: equals('loan_purpose'),
+  _uid: parseString,
+  _editable: optional(parseString),
+  label: parseString,
+  interest_rate: parseNumber,
+})
+
+export const parseLoanCalculatorContent = object<LoanCalculatorContent>({
+  component: equals('loan_calculator'),
+  _uid: parseString,
+  _editable: optional(parseString),
+  title: optional(withDefault(parseString, undefined)),
+  min_amount: optional(withDefault(parseNumber, undefined)),
+  max_amount: optional(withDefault(parseNumber, undefined)),
+  step_amount: optional(withDefault(parseNumber, undefined)),
+  default_amount: optional(withDefault(parseNumber, undefined)),
+  min_term: optional(withDefault(parseNumber, undefined)),
+  max_term: optional(withDefault(parseNumber, undefined)),
+  step_term: optional(withDefault(parseNumber, undefined)),
+  default_term: optional(withDefault(parseNumber, undefined)),
+  loan_purposes: optional(withDefault(array(parseLoanPurposeContent), undefined)),
+  cta_text: optional(withDefault(parseString, undefined)),
+  cta_url: optional(withDefault(parseLinkContent, undefined)),
+  show_disclaimer: optional(withDefault(equals(true), undefined)),
 })
