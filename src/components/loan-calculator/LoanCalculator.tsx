@@ -10,7 +10,7 @@ export interface LoanPurpose {
 }
 
 export interface LoanCalculatorStoryblok {
-  [key: string]: unknown
+  [key: string]: any
   _uid: string
   _editable?: string
   component: 'loan_calculator'
