@@ -19,10 +19,14 @@ function TrustBar(props: TrustBarProps) {
             className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900"
           >
             <span
-              className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-[10px] font-semibold uppercase tracking-wide text-slate-600"
+              style={{
+                color: '#2e7d6b',
+                fontWeight: 500,
+                marginRight: '4px',
+              }}
               aria-hidden="true"
             >
-              {item.icon.slice(0, 2)}
+              ✓
             </span>
             <span className="text-sm font-medium">{item.label}</span>
           </div>
