@@ -52,9 +52,6 @@ const navySecondaryStyle: React.CSSProperties = {
 
 function Hero(props: HeroProps) {
   const isNavy = props.blok.background === 'navy'
-    && props.blok.background !== undefined
-    && props.blok.background !== null
-    && props.blok.background !== 'white'
   const isNavyCentered = isNavy && !props.blok.image?.filename
   const showStats = props.blok.show_stats ?? false
 
@@ -65,7 +62,6 @@ function Hero(props: HeroProps) {
         className="navy-hero-centered"
         style={{ background: '#1a3d5c', color: 'white', padding: '64px 48px', textAlign: 'center' }}
       >
-        {/* eslint-disable-next-line react/no-danger */}
         <style>{`
           .navy-hero-centered .rich-text h1,
           .navy-hero-centered .rich-text h2,
