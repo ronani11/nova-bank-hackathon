@@ -65,221 +65,253 @@ function LoanCalculator(props: LoanCalculatorProps) {
   }, [amount, term, selectedPurpose])
 
   return (
-    <section
+    <div
       {...storyblokEditable(props.blok)}
-      style={{ background: 'var(--color-background-secondary)', padding: '0 40px' }}
+      style={{
+        background: '#f0f2f5',
+        padding: '40px 48px',
+      }}
     >
       <div
-        className="grid"
         style={{
-          background: 'var(--color-background-primary)',
-          border: '0.5px solid var(--color-border-tertiary)',
-          borderRadius: '12px',
-          padding: '28px 32px',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '32px',
-          width: '100%',
-          maxWidth: '900px',
+          background: '#ffffff',
+          border: '1px solid #e0e4e8',
+          borderRadius: '16px',
+          padding: '32px',
+          maxWidth: '860px',
           margin: '0 auto',
+          boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
         }}
       >
-        <div
-          className="col-span-2 flex items-center gap-2"
-          style={{ gridColumn: '1 / -1', marginBottom: '20px' }}
-        >
-          <h2
-            className="font-medium"
-            style={{
-              fontSize: '18px',
-              fontWeight: 500,
-              color: 'var(--color-text-primary)',
-            }}
-          >
-            {title}
-          </h2>
-        </div>
-
-        <div className="flex flex-col gap-4">
-          <div>
-            <div className="text-[10px]" style={{ color: 'var(--color-text-secondary)' }}>
-              Loan amount
-            </div>
-            <div className="text-[14px] font-bold" style={{ color: 'var(--color-text-primary)' }}>
-              {fmt(amount)}
-            </div>
-            <input
-              type="range"
-              min={minAmount}
-              max={maxAmount}
-              step={stepAmount}
-              value={amount}
-              onChange={(event) => setAmount(parseInt(event.target.value, 10))}
-              className="w-full mt-2"
-            />
-            <div className="flex justify-between text-[10px] mt-1" style={{ color: 'var(--color-text-secondary)' }}>
-              <span>{fmt(minAmount)}</span>
-              <span>{fmt(maxAmount)}</span>
-            </div>
-          </div>
-
-          <div>
-            <div className="text-[10px]" style={{ color: 'var(--color-text-secondary)' }}>
-              Term
-            </div>
-            <div className="text-[14px] font-bold" style={{ color: 'var(--color-text-primary)' }}>{term} months</div>
-            <input
-              type="range"
-              min={minTerm}
-              max={maxTerm}
-              step={stepTerm}
-              value={term}
-              onChange={(event) => setTerm(parseInt(event.target.value, 10))}
-              className="w-full mt-2"
-            />
-            <div className="flex justify-between text-[10px] mt-1" style={{ color: 'var(--color-text-secondary)' }}>
-              <span>{minTerm} mo</span>
-              <span>{maxTerm} mo</span>
-            </div>
-          </div>
-
-          <div>
-            <label
-              className="text-[10px] mb-1 block"
-              style={{ color: 'var(--color-text-secondary)' }}
-            >
-              Purpose
-            </label>
-            <select
-              value={selectedPurpose}
-              onChange={(event) => setSelectedPurpose(parseFloat(event.target.value))}
-              className="w-full text-[12px]"
-            >
-              {loanPurposes.map((purpose, index) => (
-                <option
-                  key={index}
-                  value={purpose.interest_rate}
-                >
-                  {purpose.label} - {purpose.interest_rate}%
-                </option>
-              ))}
-            </select>
-          </div>
-
-        </div>
-
-        <div className="flex flex-col gap-3">
-          <div
-            className="text-center"
-            style={{
-              background: 'var(--color-background-secondary)',
-              borderRadius: '8px',
-              padding: '14px',
-            }}
-          >
-            <div className="text-[10px]" style={{ color: 'var(--color-text-secondary)' }}>
-              Monthly payment
-            </div>
-            <div className="text-[26px] font-bold" style={{ color: '#1a3d5c' }}>
-              {fmt(monthlyPayment)}
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-2">
-            <div
-              className="text-center"
-              style={{
-                background: 'var(--color-background-secondary)',
-                borderRadius: '8px',
-                padding: '10px',
-              }}
-            >
-              <div className="text-[10px]" style={{ color: 'var(--color-text-secondary)' }}>
-                Total repayment
-              </div>
-              <div className="text-[13px] font-medium" style={{ color: 'var(--color-text-primary)' }}>
-                {fmt(totalRepayment)}
-              </div>
-            </div>
-            <div
-              className="text-center"
-              style={{
-                background: 'var(--color-background-secondary)',
-                borderRadius: '8px',
-                padding: '10px',
-              }}
-            >
-              <div className="text-[10px]" style={{ color: 'var(--color-text-secondary)' }}>
-                Total interest
-              </div>
-              <div className="text-[13px] font-medium" style={{ color: 'var(--color-text-primary)' }}>
-                {fmt(totalInterest)}
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div
-              className="h-[6px] rounded-[999px] overflow-hidden"
-              style={{ background: 'var(--color-background-secondary)' }}
-            >
-              <div
-                className="h-full"
-                style={{
-                  background: '#2e7d6b',
-                  width: `${loanPct}%`,
-                }}
-              />
-            </div>
-            <div className="mt-1 flex justify-between text-[10px]" style={{ color: 'var(--color-text-secondary)' }}>
-              <span>Loan</span>
-              <span>Interest</span>
-            </div>
-          </div>
-
-          <button
-            type="button"
-            className="block w-full border-0 rounded-[999px] text-[12px] font-medium"
-            style={{
-              background: '#f5a623',
-              color: '#1a1a2e',
-              padding: '9px',
-            }}
-            onClick={() => {
-              if (ctaUrl) {
-                window.location.href = ctaUrl
-              }
-            }}
-          >
-            {ctaText}
-          </button>
-        </div>
-      </div>
-
-      {showDisclaimer ? (
-        <div
+        <h2
           style={{
-            background: 'var(--color-background-warning)',
-            border: '0.5px solid var(--color-border-warning)',
-            borderRadius: '8px',
-            padding: '10px 14px',
-            margin: '16px auto 0',
+            fontSize: '22px',
+            fontWeight: 500,
+            color: '#1a3d5c',
+            marginBottom: '24px',
             display: 'flex',
             alignItems: 'center',
-            gap: '8px',
-            maxWidth: '900px',
+            gap: '10px',
           }}
         >
           <i
-            className="ti ti-alert-triangle"
-            style={{ fontSize: '14px', color: 'var(--color-text-warning)' }}
+            className="ti ti-calculator"
+            style={{ fontSize: '22px', color: '#f5a623' }}
             aria-hidden="true"
           />
-          <span style={{ fontSize: '12px', color: 'var(--color-text-warning)', fontWeight: 500 }}>
-            Warning! Borrowing money costs money.
-          </span>
+          {title}
+        </h2>
+
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            gap: '32px',
+          }}
+        >
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <div>
+              <div style={{ fontSize: '11px', color: '#6b7280', marginBottom: '4px' }}>
+                Loan amount
+              </div>
+              <div style={{ fontSize: '15px', fontWeight: 500, color: '#1a3d5c' }}>
+                {fmt(amount)}
+              </div>
+              <input
+                type="range"
+                min={minAmount}
+                max={maxAmount}
+                step={stepAmount}
+                value={amount}
+                onChange={(event) => setAmount(parseInt(event.target.value, 10))}
+                className="w-full mt-2"
+              />
+              <div className="flex justify-between text-[10px] mt-1" style={{ color: '#6b7280' }}>
+                <span>{fmt(minAmount)}</span>
+                <span>{fmt(maxAmount)}</span>
+              </div>
+            </div>
+
+            <div>
+              <div style={{ fontSize: '11px', color: '#6b7280', marginBottom: '4px' }}>
+                Term
+              </div>
+              <div style={{ fontSize: '15px', fontWeight: 500, color: '#1a3d5c' }}>{term} months</div>
+              <input
+                type="range"
+                min={minTerm}
+                max={maxTerm}
+                step={stepTerm}
+                value={term}
+                onChange={(event) => setTerm(parseInt(event.target.value, 10))}
+                className="w-full mt-2"
+              />
+              <div className="flex justify-between text-[10px] mt-1" style={{ color: '#6b7280' }}>
+                <span>{minTerm} mo</span>
+                <span>{maxTerm} mo</span>
+              </div>
+            </div>
+
+            <div>
+              <label
+                style={{
+                  fontSize: '11px',
+                  color: '#6b7280',
+                  marginBottom: '4px',
+                  display: 'block',
+                }}
+              >
+                Purpose
+              </label>
+              <select
+                value={selectedPurpose}
+                onChange={(event) => setSelectedPurpose(parseFloat(event.target.value))}
+                className="w-full text-[12px]"
+                style={{ fontSize: '15px', fontWeight: 500, color: '#1a3d5c' }}
+              >
+                {loanPurposes.map((purpose, index) => (
+                  <option
+                    key={index}
+                    value={purpose.interest_rate}
+                  >
+                    {purpose.label} - {purpose.interest_rate}%
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <div
+              style={{
+                background: '#1a3d5c',
+                borderRadius: '12px',
+                padding: '20px',
+                textAlign: 'center',
+                marginBottom: '12px',
+              }}
+            >
+              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '11px', marginBottom: '4px' }}>
+                Monthly payment
+              </p>
+              <p style={{ color: '#f5a623', fontSize: '32px', fontWeight: 500 }}>
+                {fmt(monthlyPayment)}
+              </p>
+            </div>
+
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: '1fr 1fr',
+                gap: '8px',
+                marginBottom: '12px',
+              }}
+            >
+              <div
+                style={{
+                  background: '#f0f2f5',
+                  borderRadius: '8px',
+                  padding: '12px',
+                  textAlign: 'center',
+                }}
+              >
+                <div style={{ fontSize: '10px', color: '#6b7280' }}>
+                  Total repayment
+                </div>
+                <div style={{ fontSize: '14px', fontWeight: 500, color: '#1a3d5c' }}>
+                  {fmt(totalRepayment)}
+                </div>
+              </div>
+
+              <div
+                style={{
+                  background: '#f0f2f5',
+                  borderRadius: '8px',
+                  padding: '12px',
+                  textAlign: 'center',
+                }}
+              >
+                <div style={{ fontSize: '10px', color: '#6b7280' }}>
+                  Total interest
+                </div>
+                <div style={{ fontSize: '14px', fontWeight: 500, color: '#1a3d5c' }}>
+                  {fmt(totalInterest)}
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div
+                style={{
+                  background: '#e0e4e8',
+                  height: '6px',
+                  borderRadius: '999px',
+                  overflow: 'hidden',
+                }}
+              >
+                <div
+                  style={{
+                    background: '#2e7d6b',
+                    width: `${loanPct}%`,
+                    height: '100%',
+                  }}
+                />
+              </div>
+              <div className="mt-1 flex justify-between text-[10px]" style={{ color: '#6b7280' }}>
+                <span>Loan</span>
+                <span>Interest</span>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              style={{
+                width: '100%',
+                background: '#f5a623',
+                color: '#1a1a2e',
+                border: 'none',
+                borderRadius: '999px',
+                padding: '11px',
+                fontSize: '13px',
+                fontWeight: 500,
+                marginTop: '12px',
+              }}
+              onClick={() => {
+                if (ctaUrl) {
+                  window.location.href = ctaUrl
+                }
+              }}
+            >
+              {ctaText}
+            </button>
+          </div>
         </div>
-      ) : null}
-    </section>
+
+        {showDisclaimer ? (
+          <div
+            style={{
+              marginTop: '20px',
+              padding: '12px 16px',
+              background: '#fff8e6',
+              border: '1px solid #f5a623',
+              borderRadius: '8px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '10px',
+            }}
+          >
+            <i
+              className="ti ti-alert-triangle"
+              style={{ fontSize: '16px', color: '#d97706', flexShrink: 0 }}
+              aria-hidden="true"
+            />
+            <span style={{ fontSize: '12px', color: '#92400e', fontWeight: 500 }}>
+              Warning! Borrowing money costs money.
+            </span>
+          </div>
+        ) : null}
+      </div>
+    </div>
   )
 }
 
