@@ -13,7 +13,12 @@ function Rates(props: RatesProps) {
   return (
     <section
       {...storyblokEditable(props.blok)}
-      className="bg-white px-6 py-12"
+      className="px-6"
+      style={{
+        background: '#ffffff',
+        padding: '48px 24px',
+        borderTop: '1px solid #e0e4e8',
+      }}
     >
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8">

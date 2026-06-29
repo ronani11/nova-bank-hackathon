@@ -14,7 +14,7 @@ function Steps(props: StepsProps) {
     <section
       {...storyblokEditable(props.blok)}
       className="px-6 py-12"
-      style={{ background: 'var(--color-background-secondary, #f8f9fa)' }}
+      style={{ background: '#f0f4f8' }}
     >
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8">
