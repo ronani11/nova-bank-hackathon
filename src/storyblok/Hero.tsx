@@ -51,7 +51,7 @@ const navySecondaryStyle: React.CSSProperties = {
 }
 
 function Hero(props: HeroProps) {
-  const isNavy = props.blok.background === 'navy'
+  const isNavy = props.blok.background === 'navy' || props.blok.backgroundColor === 'navy'
   const hasImage = Boolean(
     props.blok.image?.filename &&
     props.blok.image.filename.trim() !== ''
