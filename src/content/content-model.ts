@@ -47,6 +47,7 @@ export type BackgroundColor =
   | 'beige'
   | 'white'
   | 'grey'
+  | 'navy'
   | 'purple'
   | 'orange'
   | 'yellow'

@@ -74,6 +74,7 @@ const parseBackgroundColor = withDefault<BackgroundColor>(
     equals('white'),
     equals('grey'),
     equals('beige'),
+    equals('navy'),
     equals('purple'),
     equals('orange'),
     equals('yellow'),
