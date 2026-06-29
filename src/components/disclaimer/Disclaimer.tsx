@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { storyblokEditable } from '@storyblok/react/rsc'
+import Image from 'next/image'
 import type { DisclaimerContent } from '../../content'
 
 export type DisclaimerProps = {
@@ -7,8 +8,6 @@ export type DisclaimerProps = {
 }
 
 function Disclaimer(props: DisclaimerProps) {
-  const text = props.blok.disclaimer_text?.trim() || 'Let op! Geld lenen kost geld.'
-
   return (
     <div
       {...storyblokEditable(props.blok)}
@@ -18,17 +17,13 @@ function Disclaimer(props: DisclaimerProps) {
         padding: '16px 24px',
       }}
     >
-      <div
-        style={{
-          border: '1px solid #f5a623',
-          borderRadius: '8px',
-          background: '#fff8e6',
-          padding: '12px 16px',
-          textAlign: 'center',
-        }}
-      >
-        <span style={{ fontSize: '12px', color: '#92400e', fontWeight: 500 }}>{text}</span>
-      </div>
+      <Image
+        src={props.blok.afm_image?.filename || '/afm-kredietwaarschuwing.webp'}
+        alt="Let op! Geld lenen kost geld."
+        width={400}
+        height={60}
+        style={{ maxWidth: '100%', height: 'auto' }}
+      />
     </div>
   )
 }

@@ -291,6 +291,7 @@ export const parseDisclaimerContent = object<DisclaimerContent>({
   _uid: parseString,
   _editable: optional(parseString),
   disclaimer_text: optional(withDefault(parseString, undefined)),
+  afm_image: withDefault(parseAssetContent, undefined),
 })
 
 export const parseLoanPurposeContent = object<LoanPurposeContent>({
