@@ -25,18 +25,18 @@ function Disclaimer(props: DisclaimerProps) {
           background: 'rgba(255,255,255,0.08)',
           border: '1px solid rgba(255,255,255,0.2)',
           borderRadius: '8px',
-          padding: '12px 20px',
+          padding: '20px 28px',
           maxWidth: '900px',
           margin: '0 auto',
           display: 'flex',
           alignItems: 'center',
-          gap: '10px',
+          gap: '16px',
         }}
       >
-        <span aria-hidden="true" style={{ color: '#f5a623', fontSize: '14px', lineHeight: 1 }}>
+        <span aria-hidden="true" style={{ color: '#f5a623', fontSize: '24px', lineHeight: 1 }}>
           i
         </span>
-        <span style={{ color: 'rgba(255,255,255,0.85)', fontSize: '13px', fontWeight: 500 }}>
+        <span style={{ color: 'rgba(255,255,255,0.85)', fontSize: '18px', fontWeight: 600 }}>
           {text}
         </span>
       </div>
