@@ -170,8 +170,6 @@ export type RatesContent = BlockContent<{
 
 export type DisclaimerContent = BlockContent<{
   component: 'disclaimer'
-  disclaimer_text?: string
-  afm_image?: AssetContent
 }>
 
 export type LoanPurposeContent = BlockContent<{
