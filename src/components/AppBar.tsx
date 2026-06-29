@@ -15,7 +15,7 @@ const tabs = [
   },
   {
     label: 'Services',
-    href: '/services',
+    href: '/personal-loan-demo',
   },
   {
     label: 'About',
