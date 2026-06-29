@@ -11,9 +11,7 @@ function RateItem(props: RateItemProps) {
 
   return (
     <article
-      className={`rounded-[12px] p-[18px] text-center bg-white ${
-        isFeatured ? 'border-2 border-[#1a3d5c]' : 'border-[0.5px] border-[#e0e0e0]'
-      }`}
+      className="rounded-[12px] border-2 border-[#1a3d5c] p-[18px] text-center bg-white"
     >
       {isFeatured ? (
         <div className="inline-block text-[10px] bg-[#e6f1fb] text-[#185fa5] rounded-[999px] px-[10px] py-[2px] mb-2">
