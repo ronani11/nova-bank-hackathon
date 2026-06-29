@@ -25,6 +25,7 @@ export type Content =
   | TrustBarItemContent
   | RatesContent
   | RateItemContent
+  | DisclaimerContent
   | LoanCalculatorContent
 
 /**
@@ -165,6 +166,11 @@ export type RatesContent = BlockContent<{
   subtitle?: string
   footnote?: string
   items: RateItemContent[]
+}>
+
+export type DisclaimerContent = BlockContent<{
+  component: 'disclaimer'
+  disclaimer_text?: string
 }>
 
 export type LoanPurposeContent = BlockContent<{

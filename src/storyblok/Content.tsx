@@ -13,6 +13,7 @@ import type {
   StepsContent,
   TrustBarContent,
   RatesContent,
+  DisclaimerContent,
   LoanCalculatorContent,
 } from '../content'
 import TeamMembers from './TeamMembers'
@@ -28,6 +29,7 @@ import Steps from '../components/steps/Steps'
 import TrustBar from '../components/trust-bar'
 import Rates from '../components/rates/Rates'
 import LoanCalculator from '../components/loan-calculator/LoanCalculator'
+import Disclaimer from '../components/disclaimer/Disclaimer'
 
 export type ContentProps = {
   blok: Content
@@ -71,6 +73,9 @@ function Content(props: ContentProps) {
       ) : null}
       {props.blok.component === 'rates' ? (
         <Rates blok={props.blok as RatesContent} />
+      ) : null}
+      {props.blok.component === 'disclaimer' ? (
+        <Disclaimer blok={props.blok as DisclaimerContent} />
       ) : null}
       {props.blok.component === 'loan_calculator' ? (
         <LoanCalculator blok={props.blok as LoanCalculatorContent} />

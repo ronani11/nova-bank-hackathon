@@ -39,6 +39,7 @@ import type {
   TrustBarItemContent,
   RateItemContent,
   RatesContent,
+  DisclaimerContent,
   LoanPurposeContent,
   LoanCalculatorContent,
 } from '.'
@@ -63,6 +64,7 @@ export const parseContent: Parser<Content> = lazy(() =>
     parseTrustBarItemContent,
     parseRatesContent,
     parseRateItemContent,
+    parseDisclaimerContent,
     parseLoanCalculatorContent,
   ),
 )
@@ -282,6 +284,13 @@ export const parseRatesContent = object<RatesContent>({
   subtitle: optional(withDefault(parseString, undefined)),
   footnote: optional(withDefault(parseString, undefined)),
   items: withDefault(array(parseRateItemContent), []),
+})
+
+export const parseDisclaimerContent = object<DisclaimerContent>({
+  component: equals('disclaimer'),
+  _uid: parseString,
+  _editable: optional(parseString),
+  disclaimer_text: optional(withDefault(parseString, undefined)),
 })
 
 export const parseLoanPurposeContent = object<LoanPurposeContent>({

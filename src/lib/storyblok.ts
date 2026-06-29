@@ -13,6 +13,7 @@ import TrustBar from '../components/trust-bar'
 import Rates from '../components/rates/Rates'
 import RateItem from '../components/rates/RateItem'
 import LoanCalculator from '../components/loan-calculator/LoanCalculator'
+import Disclaimer from '../components/disclaimer/Disclaimer'
 import { apiPlugin, storyblokInit } from '@storyblok/react/rsc'
 
 export const getStoryblokApi = storyblokInit({
@@ -33,6 +34,7 @@ export const getStoryblokApi = storyblokInit({
     trust_bar: TrustBar,
     rates: Rates,
     rate_item: RateItem,
+    disclaimer: Disclaimer,
     loan_calculator: LoanCalculator,
   },
   apiOptions: {
