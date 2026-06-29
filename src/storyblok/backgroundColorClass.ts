@@ -20,5 +20,9 @@ export const backgroundColor = (backgroundColor: BackgroundColor): string => {
       return 'bg-[#6c757d]'
     case 'blue':
       return 'bg-[#1a3d5c]'
+    case 'navy':
+      return 'bg-[#1a3d5c]'
+    default:
+      return 'bg-[#f8f9fa]'
   }
 }
