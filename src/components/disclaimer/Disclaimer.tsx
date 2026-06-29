@@ -15,20 +15,23 @@ function Disclaimer(props: DisclaimerProps) {
     <div
       {...storyblokEditable(props.blok)}
       style={{
+        padding: '16px 24px',
+        background: '#fff8e6',
+        border: '1px solid #f5a623',
+        borderRadius: '8px',
+        margin: '24px auto',
+        maxWidth: '900px',
         display: 'flex',
-        justifyContent: 'center',
-        padding: '24px 24px 12px',
+        alignItems: 'center',
+        gap: '10px',
+        fontSize: '14px',
+        fontWeight: 500,
       }}
     >
       <div
         style={{
           width: '100%',
-          maxWidth: '980px',
-          background: '#ffffff',
-          border: '1px solid #d8dee4',
           borderRadius: '8px',
-          padding: '8px 12px',
-          boxShadow: '0 1px 4px rgba(0,0,0,0.06)',
         }}
       >
         <Image

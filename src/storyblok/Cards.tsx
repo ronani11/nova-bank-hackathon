@@ -11,7 +11,7 @@ export type CardsProps = {
 function Cards(props: CardsProps) {
   return (
     <div
-      className="self-stretch px-5 py-10 md:px-20 md:py-24 bg-neutral-100 items-center flex flex-col"
+      className="self-stretch px-5 pt-8 pb-10 md:px-20 md:pt-8 md:pb-24 bg-neutral-100 items-center flex flex-col"
       {...storyblokEditable(props.blok)}
     >
       <div className="max-w-6xl flex flex-col gap-10">
