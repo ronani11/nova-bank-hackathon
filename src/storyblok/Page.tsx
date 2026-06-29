@@ -22,7 +22,7 @@ function Page(props: PageProps) {
           key={index}
         />
       ))}
-      <Footer className="mt-16" />
+      <Footer className="mt-0" />
     </div>
   )
 }
